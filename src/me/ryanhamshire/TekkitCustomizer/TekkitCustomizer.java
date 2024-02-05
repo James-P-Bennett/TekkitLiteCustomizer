@@ -77,7 +77,7 @@ public class TekkitCustomizer extends JavaPlugin
 		AddLogEntry("TekkitCustomizer enabled.");		
 		
 		instance = this;
-		
+
 		//register for events
 		PluginManager pluginManager = this.getServer().getPluginManager();
 		
@@ -88,6 +88,10 @@ public class TekkitCustomizer extends JavaPlugin
 		//block events
 		BlockEventHandler blockEventHandler = new BlockEventHandler();
 		pluginManager.registerEvents(blockEventHandler, this);
+
+		//block events
+		AdjacentBlockDupePatch adjacentBlockDupePatch = new AdjacentBlockDupePatch();
+		pluginManager.registerEvents(adjacentBlockDupePatch, this);
 		
 		//entity events
 		EntityEventHandler entityEventHandler = new EntityEventHandler();
